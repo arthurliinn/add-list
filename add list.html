@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>ADD list</title>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="page">
+        <ul>
+            <li class="hot">Cat</li>
+            <li class="hot">DOG</li>
+            <li class="hot">CHICKEN</li>
+            <li class="new">snoop Dog</li>
+        </ul>
+        <div id="newItemButton"><button href="#" id="showform">add new item</button></div>
+        <form id="newItemForm">
+            <input type="text" id="newItemName" placeholder="add new name" />
+            <!------<button id="submit">Submit</button>--->
+            <input type="button" id="submit" value="add" />
+        </form>
+    </div>
+
+</body>
+
+<script>
+    $(function () {
+
+        var $newItemButton = $('#newItemButton');
+        var $newItemForm = $('#newItemForm');
+        var $textInput = $('input:text');
+
+        $newItemButton.show();
+        $newItemForm.hide();
+        console.log('haha');
+
+        $("#showform").on("click", function () {
+            $newItemButton.hide();
+            $newItemForm.show();
+            console.log($textInput);
+        });
+
+
+
+        $("#submit").on("click", function () {
+            if ($textInput == $textInput.val('')) {
+                alert("Please input your value");
+            } else {
+                var newText = $('input:text').val();
+                $('li:last').after('<li class="new">' + newText + '</li>');
+
+                $newItemForm.hide();
+                $newItemButton.show();
+                $textInput.val('');
+            }
+        });
+
+
+
+
+    });
+
+</script>
+
+
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        background: black;
+    }
+
+    #page {
+        max-width: 480px;
+        position: relative;
+        text-align: center;
+        margin: 20px auto 20px auto;
+    }
+
+    ul {
+        position: relative;
+        text-align: left;
+        padding: 0px;
+
+    }
+
+    li {
+        list-style: none;
+        background-color: coral;
+        border-top: 1px solid brown;
+        padding: 20px;
+        font-size: 18px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bolder;
+        color: white;
+        text-shadow: 3px 2px 2px black;
+    }
+
+    .hot {
+        background-color: rgb(179, 58, 58);
+    }
+
+    button {
+        border: none;
+        border-radius: 3px;
+        font-size: 28px;
+        background-color: crimson;
+        color: white;
+        float: right;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    #submit {
+        border: none;
+        border-radius: 3px;
+        font-size: 28px;
+        background-color: crimson;
+        color: white;
+        float: right;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    #newItemName {
+        height: 30px;
+        width: 300px;
+        border-radius: 5px;
+
+    }
+</style>
+
+</html>
