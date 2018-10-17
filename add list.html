@@ -48,7 +48,7 @@
 
 
         $("#submit").on("click", function () {
-            if ($textInput.val() === $textInput.val('')) {
+            if ($textInput.val().length < 1) {
                 alert("Please input your value");
             } else {
                 var newText = $('input:text').val();
